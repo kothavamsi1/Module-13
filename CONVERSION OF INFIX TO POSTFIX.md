@@ -1,40 +1,51 @@
-# Exp.No:32  
-## CONVERSION OF INFIX TO POSTFIX
+# Exp.No:27  
+## Operator Overloading
 
 ---
 
 ### AIM  
-To write a Python program to convert a given Infix expression to Postfix expression by following the precedence and associative rules. The input expression contains only Division, Subtraction, and Bitwise AND operators. A dictionary is used to set the priority for operators, and a set is used to hold the operators used in the given expression.
+To write a Python program to perform division of two complex numbers using the binary '/' operator overloading. Class name: `Complex`, where the objects `Ob1 = Complex(10, 21)` and `Ob2 = Complex(2, 3)` represent complex numbers.
 
 ---
 
 ### ALGORITHM
 
-1. **Start the program.**
-2. **Initialize an empty stack** and an empty output string.
-3. **Iterate through each character** in the infix expression:
-   - If the character is **not an operator**, append it directly to the output string.
-   - If the character is an **open parenthesis '('**, push it onto the stack.
-   - If the character is a **close parenthesis ')'**, pop from the stack and append to the output until encountering a left parenthesis '('.
-   - If the character is an **operator**, handle it based on precedence:
-     - While there’s an operator at the top of the stack with higher or equal precedence, pop the stack and append those operators to the output.
-     - Push the current operator onto the stack.
-4. **Use a priority dictionary** to define operator precedence, ensuring higher precedence operators are placed before lower precedence ones.
-5. Once the expression is fully processed, continue popping any remaining operators from the stack and append them to the output.
-6. **Return the final postfix expression.**
-7. **Print the result.**
-8. **End the program.**
+1. **Start the Program.**
+2. **Define the Complex class**:
+   - Define the constructor `__init__()` to accept two parameters: `real` and `imag` (representing the real and imaginary parts of the complex number).
+   - Assign these values to `self.real` and `self.imag` respectively.
+3. **Define the `__truediv__()` method** to perform the division of two complex numbers:
+   - Calculate the real part of the result as the division of `self.real` by `other.real`.
+   - Calculate the imaginary part of the result as the division of `self.imag` by `other.imag`.
+   - Return a new Complex object with the calculated real and imaginary parts.
+4. **Define the `__repr__()` method** to represent the complex number as a string.
+   - Return a string formatted to display the real and imaginary parts with one decimal place using `f"{self.real:.1f}, {self.imag:.1f}"`.
+5. **Create two objects of the Complex class**:
+   - `Ob1 = Complex(10, 21)` represents the complex number `10 + 21i`.
+   - `Ob2 = Complex(2, 3)` represents the complex number `2 + 3i`.
+6. **Perform the division operation**: Use the `/` operator to divide `Ob1` by `Ob2`. This will call the `__truediv__()` method.
+7. **Print the result**: Print the result of the division, which will be formatted by the `__repr__()` method.
+8. **End the Program.**
 
 ---
 
 ### PROGRAM
 
 ```
-
+class complex:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def __div__(self,o):
+        return self.a / o.a, self.b / o.b
+Ob1 = complex(10,21)
+Ob2 = complex(2,3)
 ```
 
 ### OUTPUT
+![image](https://github.com/user-attachments/assets/d5b4b564-04b8-46c0-8d98-feff101a2470)
 
 
 ### RESULT
 
+Thus a Python program to perform division of two complex numbers using the binary '/' operator overloading. Class name: `Complex`, where the objects `Ob1 = Complex(10, 21)` and `Ob2 = Complex(2, 3)` represent complex numbers was successfully implemented and executed.
